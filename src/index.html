@@ -17,7 +17,112 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 </head>
+<script>
 
+function calcularMedia() {
+        var temp = parseFloat(prompt("Cuantos dígitos desea calcular?"));
+        var numero = [];
+        var suma = 0;
+
+        for(let i = 0; i < temp; i++){
+            numero[i] = Number(prompt("Ingrese un número"));
+            suma = suma + numero[i];
+        }
+        document.getElementById('respuesta').innerHTML = "Media = " + suma/temp;
+        document.getElementById('array').innerHTML = "Valores: " + numero.sort((num1, num2) => num1 - num2);;
+    }
+
+    function calcularMediana() {
+        var temp = parseFloat(prompt("Cuantos dígitos desea calcular?"));
+        var numero = [];
+
+        for(let i = 0; i < temp; i++){
+            numero[i] = Number(prompt("Ingrese un número"));
+        }
+        v_sort = numero.sort((num1, num2) => num1 - num2);
+
+        if(v_sort.length % 2 == 0){
+            let suma = 0
+            temp1 = v_sort.slice((v_sort.length/2)-1, (v_sort.length/2)+1)
+            temp2 = temp1.map(function (params) {
+                return params / 2
+            })
+            temp3 = temp2.forEach(function (params) {
+                suma += params
+            })
+            document.getElementById('respuesta').innerHTML = "Mediana = " + suma;
+        }else{
+            let suma = 0
+            temp1 = v_sort.slice((v_sort.length/2), (v_sort.length/2)+1)
+            temp2 = temp1.forEach(function (params) {
+                suma = params
+            })
+            document.getElementById('respuesta').innerHTML = "Mediana = " + suma;
+        }
+        document.getElementById('array').innerHTML = "Valores: " + v_sort;
+    }
+
+    function calcularModa(){
+        var temp = parseFloat(prompt("Cuantos dígitos desea calcular?"));
+        var arreglo = [];
+
+        for(let i = 0; i < temp; i++){
+            arreglo[i] = Number(prompt("Ingrese un número"));
+        }
+
+        var buscarMayor = (counter) => Math.max.apply(null, counter)
+        var ordenarAsc = (a, b) => a - b
+        var corencias = (name) => {
+            return {count: 1, name: name}
+        }
+        var contar_coerencia = (a, b) => {
+            a[b.name] = (a[b.name] || 0) + b.count
+            return a
+        }
+        var mapearParaArray = (calculo) => {
+        var counter = []
+
+        Object.keys(calculo).filter((a) => {
+            counter.push(calculo[a])
+        })
+            return counter
+        }
+
+        var filtrarModa = (calculo, MAX) => Object.keys(calculo).filter((a) => {
+            return (calculo[a] === MAX && calculo[a] > 1) ? calculo[a] : null
+        })
+        
+        function moda(arr) {
+            var calculo = arr.sort(ordenarAsc).map(corencias).reduce(contar_coerencia, {}) 
+            var filtrada = filtrarModa(calculo, buscarMayor(mapearParaArray(calculo)))
+            return filtrada.length ? filtrada : 0
+        }
+
+        document.getElementById('respuesta').innerHTML = "Moda = " + moda(arreglo)
+        document.getElementById('array').innerHTML = "Valores: " + arreglo
+    }
+
+    function calcularFrecuenciaAbsoluta(){
+        var temp = parseFloat(prompt("Cuantos dígitos desea calcular?"))
+        var arreglo = []
+        var frecuenciaAbsoluta = {}
+
+        for(let i = 0; i < temp; i++){
+            arreglo[i] = Number(prompt("Ingrese un número"))
+        }
+
+        for(let i = 0; i < arreglo.length; i++) {
+            var num = arreglo[i]
+            if(frecuenciaAbsoluta[num]){
+                frecuenciaAbsoluta[num]++
+            } else {
+                frecuenciaAbsoluta[num] = 1
+            }
+        }
+        document.getElementById('respuesta').innerHTML = "Frecuencia Absoluta = " + JSON.stringify(frecuenciaAbsoluta)
+        document.getElementById('array').innerHTML = "Valores: " + arreglo.sort((num1, num2) => num1 - num2)
+    }
+</script>
 <body>
   <app-root></app-root>
 </body>

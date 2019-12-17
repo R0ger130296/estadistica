@@ -1,14 +1,43 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estadística Descriptiva</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="script.js"></script>
+    <meta charset="utf-8">
+  </head>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div class="container">
+
+    <h1 class="col-12 text-center">Estadística Descriptiva</h1>
+
+    <div class="container text-center">
+  
+    </div>
+
+    <br>
+
+    <div class="col-lg-12 text-center">
+      <button type="button" class="btn btn-primary" onclick= "calcularMedia()" >Calcular Media</button><br><br>
+      <button type="button" class="btn btn-info" onclick= "calcularMediana()" >Calcular Mediana</button><br><br>
+      <button type="button" class="btn btn-primary" onclick= "calcularModa()" >Calcular Moda</button><br><br>
+      <button type="button" class="btn btn-info" onclick= "calcularFrecuenciaAbsoluta()" >Calcular Frecuencia Absoluta</button><br><br>
+    </div>
+
+    <br><br><br>
+
+    <div class="col-lg-12 text-center">
+      <label>Resultado:</label><br>
+      <h1 id="respuesta"></h1>
+      <h5 id="array"></h5>
+    </div>
+
   </div>
-</ion-content>
+
+
+  <footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </footer>
+</html>

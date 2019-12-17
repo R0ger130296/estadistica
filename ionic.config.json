@@ -1,5 +1,7 @@
 {
   "name": "estadistica",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
